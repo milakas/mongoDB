@@ -73,3 +73,11 @@ Fruit.find()
   .catch((error) => {
     console.error(error);
   });
+
+Fruit.updateOne({ _id: '645e0555d46386ab3181c783' }, { name: 'Mango' })
+  .then(() => {
+    console.log(`Document updated.`);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
