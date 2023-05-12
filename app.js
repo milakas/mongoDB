@@ -41,16 +41,43 @@ const fruit = new Fruit({
 const personSchema = new mongoose.Schema({
   name: String,
   age: Number,
+  favouriteFruit: fruitsSchema,
 });
 
 const Person = mongoose.model('Person', personSchema);
 
+const pineapple = new Fruit({
+  name: 'Pineapple',
+  rating: 9,
+  review: 'Great fruit',
+});
+
+// pineapple.save();
+
 const person = new Person({
-  name: 'John',
-  age: 37,
+  name: 'Amy',
+  age: 12,
+  favouriteFruit: pineapple,
 });
 
 // person.save();
+
+const kiwi = new Fruit({
+  name: 'Kiwi',
+  rating: 7,
+  review: 'Decent fruit',
+});
+
+// kiwi.save();
+
+// Uncomment the following code if you want to update a document in the collection
+// Person.updateOne({ name: 'John' }, { favouriteFruit: kiwi })
+//   .then(() => {
+//     console.log(`Document updated.`);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
 
 const banana = new Fruit({
   name: 'Banana',
