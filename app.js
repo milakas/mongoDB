@@ -38,6 +38,20 @@ const fruit = new Fruit({
 //     console.error('Error saving fruit:', error);
 //   });
 
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+});
+
+const Person = mongoose.model('Person', personSchema);
+
+const person = new Person({
+  name: 'John',
+  age: 37,
+});
+
+// person.save();
+
 const banana = new Fruit({
   name: 'Banana',
   rating: 3,
@@ -74,10 +88,13 @@ Fruit.find()
     console.error(error);
   });
 
-Fruit.updateOne({ _id: '645e0555d46386ab3181c783' }, { name: 'Mango' })
-  .then(() => {
-    console.log(`Document updated.`);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+// Uncomment the following code if you want to update a document in the collection
+// Fruit.updateOne({ _id: '645e0555d46386ab3181c783' }, { name: 'Mango' })
+//   .then(() => {
+//     console.log(`Document updated.`);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+
+// Uncomment the following code if you want to delete a document in the collection
