@@ -8,8 +8,15 @@ mongoose.connect(`mongodb://127.0.0.1:27017/${DB_NAME}`, {
 console.log(`Successfully connected to db ${DB_NAME}`);
 
 const fruitsSchema = new mongoose.Schema({
-  name: String,
-  rating: Number,
+  name: {
+    type: String,
+    required: [true, 'Please check your data entry, no name specified!'],
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10,
+  },
   review: String,
 });
 
